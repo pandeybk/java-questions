@@ -310,7 +310,7 @@ public class Questions {
 		int prime1=0, prime2=0;
 		n++;
 		while(prime1%10 !=9 || prime2%10 !=9){
-			while(isPrime2(n) == 0 || n%10 != 9){
+			while(isPrime2(n) == 0){
 				n++;
 			}
 			prime1 = n;
