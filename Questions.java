@@ -1,4 +1,6 @@
 import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Questions {
 
@@ -84,6 +86,22 @@ public class Questions {
 			findPorcupineNumber(20);
 			findPorcupineNumber(139);		
 			findPorcupineNumber(409);
+
+			/*Function findGuthrieSequence*/
+			System.out.println("<<<<<<>>>>>>>>>>>>>>>><<<<<<<<<<<<<>>>>>>>><<<<<>>>>");
+			System.out.println("GuthrieSequence for 7");
+			findGuthrieSequence(7);
+			System.out.println("GuthrieSequence for 9");
+			findGuthrieSequence(9);
+			System.out.println("GuthrieSequence for 8");
+			//findGuthrieSequence2(8);
+			isGuthrieSequence(new int[]{7,2});
+			//isGuthrieSequence(new int[]{7, 22, 11, 34, 17, 52, 26, 13, 40, 20, 10, 5, 16, 8, 4, 2, 1});
+			//isGuthrieSequence(new int[]{7, 22, 11, 34, 17, 52, 26, 13, 4, 20, 10, 5, 16, 8, 4, 2, 1});
+			isGuthrieSequence(new int[]{8, 4, 2, 1});
+			isGuthrieSequence(new int[]{8, 17, 4, 1});
+			//isGuthrieSequence(new int[]{8, 4, 1});
+			//isGuthrieSequence(new int[]{8, 4, 2});
 		}
 	
 
@@ -324,5 +342,80 @@ public class Questions {
 		System.out.println("Porcupine number found: " + prime1);
 		System.out.println("Because it's following prime number is: " + n);
 		return prime1;
+	}
+
+	static int[] findGuthrieSequence(int a){
+		int[] guthriesequence = new int[100];
+		int i = 1;
+		System.out.println("Initial " + a);
+		guthriesequence[0] = a;
+		while(a!=1){
+			if(a%2==0){
+				a = a/2;
+				if(a==1){
+					guthriesequence[i]=a;
+					System.out.println("Inside one " + a);
+					break;
+				}
+				guthriesequence[i]=a;
+				System.out.println("Inside even " + a);
+			}
+			if(a%2!=0){
+				a = (a*3)+1;
+				guthriesequence[i]=a;
+				System.out.println("Inside odd " + a);
+			}
+			i++;
+		}	
+		System.out.println(Arrays.toString(guthriesequence));
+		return guthriesequence;	
+	}
+
+	static Integer[] findGuthrieSequence2(int a){
+		List<Integer> guthriesequencelist = new ArrayList<Integer>();
+		//System.out.println("Initial " + a);
+		guthriesequencelist.add(a);
+		while(a!=1){
+			if(a%2==0){
+				a = a/2;
+				if(a==1){
+					guthriesequencelist.add(a);
+					//System.out.println("Inside one " + a);
+					break;
+				}
+				guthriesequencelist.add(a);
+				//System.out.println("Inside even " + a);
+			}
+			if(a%2!=0){
+				a = (a*3)+1;
+				guthriesequencelist.add(a);
+				//System.out.println("Inside odd " + a);
+			}
+		}
+		Integer[] guthriesequencearray = guthriesequencelist.toArray(new Integer[guthriesequencelist.size()]);
+		//System.out.println(Arrays.toString(guthriesequencearray));
+		return guthriesequencearray;
+	}
+
+	static int isGuthrieSequence(int[] a){
+		System.out.println("Print array length given " + a.length);
+		System.out.println("Print array length calculated " + findGuthrieSequence2(a[0]).length);
+		System.out.println(Arrays.toString(findGuthrieSequence2(a[0])));
+		if(a.length != findGuthrieSequence2(a[0]).length && a[a.length-1] != 1){
+			System.out.println("Return 0 from length comparison");
+			return 0;
+		}
+		Integer[] guthriesequencearray = new Integer[a.length];
+		guthriesequencearray = findGuthrieSequence2(a[0]);
+		System.out.println(Arrays.toString(a));
+		
+		for(int i=0; i<a.length; i++){
+			if(a[i] != guthriesequencearray[i]){
+				System.out.println("Return 0 from elements comparisions");
+				return 0;
+			}
+		}
+		System.out.println("Return 1");
+		return 1;
 	}
 }
