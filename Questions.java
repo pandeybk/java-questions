@@ -102,6 +102,13 @@ public class Questions {
 			isGuthrieSequence(new int[]{8, 17, 4, 1});
 			//isGuthrieSequence(new int[]{8, 4, 1});
 			//isGuthrieSequence(new int[]{8, 4, 2});
+
+			/*Function guthrieIndex */
+			guthrieIndex(1);
+			guthrieIndex(2);
+			guthrieIndex(3);
+			guthrieIndex(4);
+			guthrieIndex(42);
 		}
 	
 
@@ -417,5 +424,11 @@ public class Questions {
 		}
 		System.out.println("Return 1");
 		return 1;
+	}
+
+	static int guthrieIndex(int n){
+		int guthrieIndex = findGuthrieSequence2(n).length-1;
+		System.out.println("guthrieIndex of: "+ n + " is " + guthrieIndex);
+		return guthrieIndex;
 	}
 }
