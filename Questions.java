@@ -104,11 +104,20 @@ public class Questions {
 			//isGuthrieSequence(new int[]{8, 4, 2});
 
 			/*Function guthrieIndex */
+			System.out.println("<<<<<<>>>>>>>>>>>>>>>><<<<<<<<<<<<<>>>>>>>><<<<<>>>>");
 			guthrieIndex(1);
 			guthrieIndex(2);
 			guthrieIndex(3);
 			guthrieIndex(4);
 			guthrieIndex(42);
+
+			/*Function stantonMeasure */
+			System.out.println("<<<<<<>>>>>>>>>>>>>>>><<<<<<<<<<<<<>>>>>>>><<<<<>>>>");
+			stantonMeasure(new int[]{1});
+			stantonMeasure(new int[]{0});
+			stantonMeasure(new int[]{3, 1, 1, 4});
+			stantonMeasure(new int[]{1, 3, 1, 1, 3, 3, 2, 3, 3, 3, 4});
+			stantonMeasure(new int[]{});
 		}
 	
 
@@ -431,4 +440,23 @@ public class Questions {
 		System.out.println("guthrieIndex of: "+ n + " is " + guthrieIndex);
 		return guthrieIndex;
 	}
+
+	static int stantonMeasure(int[] a){
+		int countone = 0;
+		int countstantonmeasure = 0;
+
+		for(int i = 0; i<a.length ; i++){
+			if(a[i] == 1){
+				countone++;
+			}		
+		}
+
+		for(int i = 0; i<a.length ; i++){
+			if(a[i] == countone){
+				countstantonmeasure++;
+			}		
+		}
+		System.out.println("countstantonmeasure: " +countstantonmeasure);
+		return countstantonmeasure;
+	}		
 }
