@@ -118,6 +118,13 @@ public class Questions {
 			stantonMeasure(new int[]{3, 1, 1, 4});
 			stantonMeasure(new int[]{1, 3, 1, 1, 3, 3, 2, 3, 3, 3, 4});
 			stantonMeasure(new int[]{});
+
+			/*Function sumFactor */
+			System.out.println("<<<<<<>>>>>>>>>>>>>>>><<<<<<<<<<<<<>>>>>>>><<<<<>>>>");
+			sumFactor(new int[]{3, 0, 2, -5, 0});
+			sumFactor(new int[]{9, -3, -3, -1, -1});
+			sumFactor(new int[]{1});
+			sumFactor(new int[]{0, 0, 0});
 		}
 	
 
@@ -458,5 +465,21 @@ public class Questions {
 		}
 		System.out.println("countstantonmeasure: " +countstantonmeasure);
 		return countstantonmeasure;
+	}
+
+	static int sumFactor(int[] a){
+		int countsumfactor = 0;
+		int sum = 0;
+		for(int i=0; i<a.length; i++){
+			sum+=a[i];
+		}
+
+		for(int i=0; i<a.length; i++){
+			if(a[i] == sum){
+				countsumfactor++;
+			}
+		}
+		System.out.println("countsumfactor: " +countsumfactor);
+		return countsumfactor;
 	}		
 }
