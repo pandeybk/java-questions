@@ -528,11 +528,19 @@ public class Questions {
 
 	static int repsEqual(int[] a, int n){
 		List<Integer> numberlist = new ArrayList<Integer>();
+
 		while(String.valueOf(n).length() != 1){
 			numberlist.add(n%10);
 			n=(int)Math.floor(n/10);
 		}
+		
 		numberlist.add(n);
+
+		if(a[0]==0){
+			numberlist.add(0);
+		}
+
+		System.out.println(numberlist);
 		int numberarraylength = numberlist.size();
 		Integer[] numberarray = numberlist.toArray(new Integer[numberarraylength]);
 		if(a.length != numberarraylength){
