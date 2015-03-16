@@ -125,6 +125,9 @@ public class Questions {
 			sumFactor(new int[]{9, -3, -3, -1, -1});
 			sumFactor(new int[]{1});
 			sumFactor(new int[]{0, 0, 0});
+
+			/*Function solve10*/
+			solve10();
 		}
 	
 
@@ -481,5 +484,33 @@ public class Questions {
 		}
 		System.out.println("countsumfactor: " +countsumfactor);
 		return countsumfactor;
-	}		
+	}	
+
+	static int[] solve10(){
+
+		int[] xandy = new int[2];
+		int factorial10 = factorial(10);
+		
+		for(int i=10;i>0; i--){
+			for(int j=10; j>0; j--){
+				//System.out.println("Integer i: " + i );
+				//System.out.println("Integer j: " + j );
+				//System.out.println("Factorial sum of " + i + " and " + j + " is " + (factorial(i)+factorial(j)));
+				if((factorial(i)+factorial(j)) != factorial10) continue;
+				xandy[0] = i;
+				xandy[1] = j;
+				System.out.println("Value of x is: " + i + " and y is: " + j);
+			}			
+		}
+		System.out.println(Arrays.toString(xandy));	
+		return xandy;
+	}
+
+	static int factorial(int n){
+		int factorial=1;
+		for(int i=n; i>1; i--){
+			factorial *=i;
+		}
+		return factorial;
+	}	
 }
