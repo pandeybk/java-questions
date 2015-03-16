@@ -127,7 +127,19 @@ public class Questions {
 			sumFactor(new int[]{0, 0, 0});
 
 			/*Function solve10*/
+			System.out.println("<<<<<<>>>>>>>>>>>>>>>><<<<<<<<<<<<<>>>>>>>><<<<<>>>>");
 			solve10();
+			
+			/*Function repsEqual*/
+			System.out.println("<<<<<<>>>>>>>>>>>>>>>><<<<<<<<<<<<<>>>>>>>><<<<<>>>>");
+			repsEqual(new int[]{1,2,3}, 123);
+			repsEqual(new int[]{3, 2, 0, 5, 3}, 32053);
+			repsEqual(new int[]{3, 2, 0, 5}, 32053);
+			repsEqual(new int[]{3, 2, 0, 5, 3, 4}, 32053);
+			repsEqual(new int[]{2, 3, 0, 5, 3}, 32053);
+			repsEqual(new int[]{9, 3, 1, 1, 2}, 32053);
+			repsEqual(new int[]{0, 3, 2, 0, 5, 3}, 32053);
+			
 		}
 	
 
@@ -512,5 +524,29 @@ public class Questions {
 			factorial *=i;
 		}
 		return factorial;
+	}
+
+	static int repsEqual(int[] a, int n){
+		List<Integer> numberlist = new ArrayList<Integer>();
+		while(String.valueOf(n).length() != 1){
+			numberlist.add(n%10);
+			n=(int)Math.floor(n/10);
+		}
+		numberlist.add(n);
+		int numberarraylength = numberlist.size();
+		Integer[] numberarray = numberlist.toArray(new Integer[numberarraylength]);
+		if(a.length != numberarraylength){
+			System.out.println("Return 0 from length miss matched");
+			return 0;
+		}
+		for(int i=0; i<a.length; i++){
+			if(a[i]!=numberarray[a.length-1-i]){
+				System.out.println("Return 0 from array miss matched");
+				return 0;
+				}
+			
+		}
+		System.out.println("Return 1");
+		return 1;
 	}	
 }
