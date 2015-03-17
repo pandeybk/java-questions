@@ -140,6 +140,16 @@ public class Questions {
 			repsEqual(new int[]{9, 3, 1, 1, 2}, 32053);
 			repsEqual(new int[]{0, 3, 2, 0, 5, 3}, 32053);
 			
+			/*Function isCentered15 */
+			System.out.println("<<<<<<>>>>>>>>>>>>>>>><<<<<<<<<<<<<>>>>>>>><<<<<>>>>");
+			isCentered15(new int[]{3, 2, 10, 4, 1, 6, 9});
+			isCentered15(new int[]{3, 2, 10, 5, 6, 9});
+			isCentered15(new int[]{2, 10, 4, 1, 6, 9});
+			isCentered15(new int[]{3, 2, 10, 4, 1, 6});
+			isCentered15(new int[]{1,1,8, 3, 1, 1});
+			isCentered15(new int[]{9, 15, 6});
+			isCentered15(new int[]{1, 1, 2, 2, 1, 1});
+			isCentered15(new int[]{1, 1, 15 -1,-1});
 		}
 	
 
@@ -557,4 +567,40 @@ public class Questions {
 		System.out.println("Return 1");
 		return 1;
 	}	
+
+	static int isCentered15(int[] a){
+		int sum = 0;
+		for(int i=0; i<a.length; i++){
+			//System.out.println("Elements of sum: " + a[i]);
+			sum = a[i];
+			if(sum==15 && a.length%2!=0){
+				if(i== Math.floor(a.length/2)){
+					System.out.println("Return 1 from odd check");
+					return 1;
+				}
+			}
+			for(int j=i+1; j<a.length; j++){
+				//System.out.println("Elements of sum: " + a[j]);
+				sum +=a[j];
+				if(sum>15) break;
+				if(sum==15){
+					//System.out.println("Sum 15 found: " + sum);
+
+					if(i==(a.length-(j+1))){
+						/*
+						System.out.println("i : " + i);			
+						System.out.println("j : " + j);	
+						System.out.println("Length : " + a.length);
+						*/
+						System.out.println("Return 1");
+						return 1;
+					}
+					break;
+				}
+			}
+			//System.out.println("-----------------------"); 
+		}
+		System.out.println("Return 0");
+		return 0;
+	}
 }
