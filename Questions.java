@@ -150,6 +150,16 @@ public class Questions {
 			isCentered15(new int[]{9, 15, 6});
 			isCentered15(new int[]{1, 1, 2, 2, 1, 1});
 			isCentered15(new int[]{1, 1, 15 -1,-1});
+			
+			/*Function findFactorial*/
+			System.out.println("<<<<<<>>>>>>>>>>>>>>>><<<<<<<<<<<<<>>>>>>>><<<<<>>>>");
+			isPerfectNumber(15);
+			isPerfectNumber(6);
+
+			/*Function henry*/
+			System.out.println("<<<<<<>>>>>>>>>>>>>>>><<<<<<<<<<<<<>>>>>>>><<<<<>>>>");
+			henry(1,3);
+			henry(3,4);
 		}
 	
 
@@ -572,6 +582,7 @@ public class Questions {
 		int sum = 0;
 		for(int i=0; i<a.length; i++){
 			//System.out.println("Elements of sum: " + a[i]);
+			//System.out.println(((a.length-1)/2)+1);
 			sum = a[i];
 			if(sum==15 && a.length%2!=0){
 				if(i== Math.floor(a.length/2)){
@@ -602,5 +613,49 @@ public class Questions {
 		}
 		System.out.println("Return 0");
 		return 0;
+	}
+
+	static int isPerfectNumber(int number){
+		int factorNumber = 1;
+		int sum = 0;
+		while(factorNumber<number){
+			if(number % factorNumber == 0){
+				//System.out.println(factorNumber + " is a factor of " + number);
+				sum+=factorNumber;
+				}
+			factorNumber++;			
+			}
+
+			if(sum==number){
+				System.out.println("Perfect number found "+ number);
+				//System.out.println("Return 1");
+				return 1;
+			}
+
+		//System.out.println("Return 0");
+		return 0;
+	}	
+
+	static int henry(int i, int j){
+		int count=0;
+		int number = 1;
+		int perfectNumber1 = 0;
+		int perfectNumber2 = 0;
+		while(count!=j){
+			if(isPerfectNumber(number) == 1){
+				count++;
+				if(count==i){
+					perfectNumber1=number;
+				}
+				if(count==j){
+					perfectNumber2=number;
+				}
+			}
+			number++;
+		}
+		System.out.println("PerfectNumber1: " + perfectNumber1);
+		System.out.println("PerfectNumber2: " + perfectNumber2);
+		System.out.println("Sum of Perfect Number: " + (perfectNumber1+perfectNumber2));
+		return (perfectNumber1+perfectNumber2);		
 	}
 }
