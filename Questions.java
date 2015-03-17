@@ -160,6 +160,14 @@ public class Questions {
 			System.out.println("<<<<<<>>>>>>>>>>>>>>>><<<<<<<<<<<<<>>>>>>>><<<<<>>>>");
 			henry(1,3);
 			henry(3,4);
+			
+			/*Function isDivisible*/
+			System.out.println("<<<<<<>>>>>>>>>>>>>>>><<<<<<<<<<<<<>>>>>>>><<<<<>>>>");
+			isDivisible(new int[]{3, 3, 6, 36}, 3);
+			isDivisible(new int[]{4}, 2);
+			isDivisible(new int[]{3, 4, 3, 6, 36}, 3);
+			isDivisible(new int[]{6, 12, 24, 36}, 12);
+			isDivisible(new int[]{}, 3);
 		}
 	
 
@@ -657,5 +665,16 @@ public class Questions {
 		System.out.println("PerfectNumber2: " + perfectNumber2);
 		System.out.println("Sum of Perfect Number: " + (perfectNumber1+perfectNumber2));
 		return (perfectNumber1+perfectNumber2);		
+	}
+
+	static int isDivisible(int[] a, int divisor){
+		for(int i=0; i<a.length; i++){
+			if(a[i]%divisor!=0){
+				System.out.println("Return 0");
+				return 0;
+			}
+		}
+		System.out.println("Return 1");
+		return 1;		
 	}
 }
