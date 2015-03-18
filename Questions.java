@@ -178,6 +178,14 @@ public class Questions {
 			isNUnique(new int[]{7, 3, 3, 2, 4}, 4);
 			isNUnique(new int[]{1}, 1);
 			isNUnique(new int[]{2, 7, 3, 4}, 5);
+
+			/*Function isSquare*/
+			System.out.println("<<<<<<>>>>>>>>>>>>>>>><<<<<<<<<<<<<>>>>>>>><<<<<>>>>");
+			isSquare(4);
+			isSquare(25);
+			isSquare(-4);
+			isSquare(8);
+			isSquare(0);
 		}
 	
 
@@ -397,6 +405,30 @@ public class Questions {
 		if(a == sqrt*sqrt){
 			return 1;		
 		}
+		return 0;
+	}
+
+	static int isSquare(int a){
+		int square=1;
+		int number=1;
+
+		if(a==0){
+			System.out.println("Return 1");			
+			return 1;
+		}
+
+		while(square!=a){
+			square = number*number;
+			if(square>a) break;
+			number++;
+		}
+
+		if(square == a){
+			System.out.println("Return 1");
+			return 1;
+		}
+
+		System.out.println("Return 0");
 		return 0;
 	}
 
