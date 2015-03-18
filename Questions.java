@@ -168,6 +168,16 @@ public class Questions {
 			isDivisible(new int[]{3, 4, 3, 6, 36}, 3);
 			isDivisible(new int[]{6, 12, 24, 36}, 12);
 			isDivisible(new int[]{}, 3);
+
+			/* Function isNUnique */
+			System.out.println("<<<<<<>>>>>>>>>>>>>>>><<<<<<<<<<<<<>>>>>>>><<<<<>>>>");
+			isNUnique(new int[]{7, 3, 3, 2, 4}, 6);
+			isNUnique(new int[]{7, 3, 3, 2, 4}, 10);
+			isNUnique(new int[]{7, 3, 3, 2, 4}, 11);
+			isNUnique(new int[]{7, 3, 3, 2, 4}, 8);
+			isNUnique(new int[]{7, 3, 3, 2, 4}, 4);
+			isNUnique(new int[]{1}, 1);
+			isNUnique(new int[]{2, 7, 3, 4}, 5);
 		}
 	
 
@@ -676,5 +686,30 @@ public class Questions {
 		}
 		System.out.println("Return 1");
 		return 1;		
+	}
+
+	static int isNUnique(int[] a, int n){
+		int sum=0, count=0;
+		//System.out.println("n = " +n);
+		for(int i=0; i<a.length-1; i++){
+			for(int j=i+1; j<a.length;j++){
+				//System.out.println(a[i] + " addition " + a[j]);
+				sum=a[i]+a[j];
+				if(sum==n){
+					count++;
+				}
+			}
+
+		}
+		if(count==1 && a[0]==n){
+			System.out.println("Return 0 from count==1 && a[0]==n");
+			return 0;
+		}
+		if(count==1){
+			System.out.println("Return 1");
+			return 1;
+		}
+		System.out.println("Return 0");
+		return 0;
 	}
 }
