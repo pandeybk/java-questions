@@ -186,6 +186,13 @@ public class Questions {
 			isSquare(-4);
 			isSquare(8);
 			isSquare(0);
+
+			/* Function convertToBase10 */
+			System.out.println("<<<<<<>>>>>>>>>>>>>>>><<<<<<<<<<<<<>>>>>>>><<<<<>>>>");
+			convertToBase10(new int[ ] {1, 0, 1, 1}, 2);
+			convertToBase10(new int[ ] {1, 1, 2}, 3);
+			convertToBase10(new int[ ] {3, 2, 5}, 8);
+			convertToBase10 (new int[ ] {3, 7, 1}, 6);
 		}
 	
 
@@ -743,5 +750,32 @@ public class Questions {
 		}
 		System.out.println("Return 0");
 		return 0;
+	}
+
+	static int isLegalNumber(int[] a, int base){
+		for(int i=0; i<a.length;i++){
+			if(a[i]>=base){
+				return 0;
+			}
+		}	
+		return 1;
+	}
+
+	static int convertToBase10(int[] a, int base){
+
+		int sum=0;
+		int newbase=1;
+
+		if(isLegalNumber(a,base)==0){
+			System.out.println("Return 0 from isLegalNumber");
+			return 0;
+		}
+
+		for(int i=a.length-1;i>=0;i--){
+			sum+=a[i]*newbase;
+			newbase*=base;	
+		}
+		System.out.println("Base 10 conversion of "+Arrays.toString(a) +" and base " + base + " is : "+sum);
+		return sum;
 	}
 }
