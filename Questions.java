@@ -193,6 +193,20 @@ public class Questions {
 			convertToBase10(new int[ ] {1, 1, 2}, 3);
 			convertToBase10(new int[ ] {3, 2, 5}, 8);
 			convertToBase10 (new int[ ] {3, 7, 1}, 6);
+
+			/* Function arrayHasNoZeroes */
+			System.out.println("<<<<<<>>>>>>>>>>>>>>>><<<<<<<<<<<<<>>>>>>>><<<<<>>>>");
+			arrayHasNoZeroes(new int[] {1, 2, 3});
+			arrayHasNoZeroes(new int[] {1, 0, 4, 0});
+			arrayHasNoZeroes(new int[] {1, 2, 3, 0});
+			arrayHasNoZeroes(new int[] {0, 0, 0, 0});
+			arrayHasNoZeroes(new int[] {});
+
+			/* Function isSmart */
+			System.out.println("<<<<<<>>>>>>>>>>>>>>>><<<<<<<<<<<<<>>>>>>>><<<<<>>>>");
+			isSmart(11);
+			isSmart(22);
+			isSmart(8);			
 		}
 	
 
@@ -777,5 +791,32 @@ public class Questions {
 		}
 		System.out.println("Base 10 conversion of "+Arrays.toString(a) +" and base " + base + " is : "+sum);
 		return sum;
+	}
+
+	static int arrayHasNoZeroes(int[] a){
+		for(int i=0; i<a.length;i++){
+			if(a[i]==0){
+				System.out.println("Arrary has 0, return 0");
+				return 0;
+			}
+		}
+		System.out.println("Arrary has no 0, return 1");
+		return 1;
+	}
+
+	static int isSmart(int n){
+		int sum = 1, count=0;
+		while(sum!=n){
+			sum+=count;
+			System.out.println("Smart sequence: " + sum);
+			if(sum>n) break;
+			count++;
+		}
+		if(sum==n){
+			System.out.println(n + " Number is smart, return 1");
+			return 1;
+		}	
+		System.out.println(n + " Number is not smart, return 0");
+		return 0;
 	}
 }
