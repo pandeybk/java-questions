@@ -206,7 +206,23 @@ public class Questions {
 			System.out.println("<<<<<<>>>>>>>>>>>>>>>><<<<<<<<<<<<<>>>>>>>><<<<<>>>>");
 			isSmart(11);
 			isSmart(22);
-			isSmart(8);			
+			isSmart(8);	
+
+			/* Function isNiceArray */		
+			System.out.println("<<<<<<>>>>>>>>>>>>>>>><<<<<<<<<<<<<>>>>>>>><<<<<>>>>");
+			isNiceArray(new int[] {21, 3, 7, 9, 11, 4, 6});			
+			isNiceArray(new int[] {13, 4, 4, 4, 4});
+			isNiceArray(new int[] {10, 5, 5});
+			isNiceArray(new int[] {0, 6, 8, 20});
+			isNiceArray(new int[] {3});
+			isNiceArray(new int[] {8, 5, -5, 5, 3});
+
+			/* Function isComplete */
+			System.out.println("<<<<<<>>>>>>>>>>>>>>>><<<<<<<<<<<<<>>>>>>>><<<<<>>>>");
+			isComplete(new int[]{2, 3, 2, 4, 11, 6, 10, 9, 8});
+			isComplete(new int[]{2, 3, 3, 6});
+			isComplete(new int[]{2, -3, 4, 3, 6});
+			
 		}
 	
 
@@ -817,6 +833,51 @@ public class Questions {
 			return 1;
 		}	
 		System.out.println(n + " Number is not smart, return 0");
+		return 0;
+	}
+
+	static int isNiceArray(int[] a){
+		int sumprime = 0;
+		for(int i=0; i<a.length; i++){
+			if(isPrime2(a[i]) == 1){
+				sumprime+=a[i];
+			}
+		}
+		if(sumprime==a[0]){
+			System.out.println(a[0] + " Initial elements of array equals sumprime " + sumprime);
+			System.out.println("Return 1");
+			return 1;
+		}
+		System.out.println("Return 0");
+		return 0;
+	}
+
+	static int isComplete(int[] a){
+		int flag=0;
+		int maxeven=0;
+		for(int i=0; i<a.length; i++){
+			if(a[i]<=0){
+				System.out.println("Return 0 from <=0 check");
+				return 0;
+				}
+			if(a[i]%2==0){
+				flag = 1;
+				if(maxeven<a[i]){
+					maxeven=a[i];
+				}
+			}
+		}
+		System.out.println("Maxeven found: " + maxeven);
+
+		if(flag==0){
+			System.out.println("Return 0 from flag miss matched");
+			return 0;
+		}
+		int[] evenarray = new int[maxeven/2];
+
+		for(int j=0; j<maxeven; j+=2)		
+		
+		System.out.println("Return 0");
 		return 0;
 	}
 }
