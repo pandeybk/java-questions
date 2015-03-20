@@ -248,7 +248,12 @@ public class Questions {
 			repsEqual3(new int[]{2, 3, 0, 5, 3}, 32053);
 			repsEqual3(new int[]{9, 3, 1, 1, 2}, 32053);
 			repsEqual3(new int[]{0, 3, 2, 0, 5, 3}, 32053);	
-			
+
+			/* Function isSmart2*/
+			System.out.println("<<<<<<>>>>>>>>>>>>>>>><<<<<<<<<<<<<>>>>>>>><<<<<>>>>");
+			isSmart2(22);
+			isSmart2(3);
+			isSmart2(8);
 		}
 	
 
@@ -941,6 +946,20 @@ public class Questions {
 			return 1;
 		}	
 		System.out.println(n + " Number is not smart, return 0");
+		return 0;
+	}
+
+	static int isSmart2(int n){
+		int kelement=1;
+		for(int i=1; i<n; i++){
+			kelement+=i;
+			if(kelement==n){
+				System.out.println("Return 1, smart");
+				return 1;
+			}
+			if(kelement>n) break;
+		}
+		System.out.println("Return 0, Looser");
 		return 0;
 	}
 
