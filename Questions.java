@@ -271,6 +271,13 @@ public class Questions {
 			isTriple(new int[]{2, 5, 2, 5, 5, 2, 5});
 			isTriple(new int[]{3, 1, 1, 1});
 			isTriple(new int[]{1, 1, 1});
+
+			/* Function isFibonacci*/
+			System.out.println("<<<<<<>>>>>>>>>>>>>>>><<<<<<<<<<<<<>>>>>>>><<<<<>>>>");
+			isFibonacci(1);			
+			isFibonacci(21);
+			isFibonacci(22);
+			isFibonacci(100);
 		}
 	
 
@@ -1126,5 +1133,37 @@ public class Questions {
 		}
 		System.out.println("Return 1 triple");
 		return 1;
+	}
+
+	/*
+
+	A Fibonacci number is a number in the sequence 1, 1, 2, 3, 5, 8, 13, 21,…. Note that first two Fibonacci numbers are 1 and any Fibonacci number other than the first two is the sum of the previous two Fibonacci numbers. For example, 2 = 1 + 1, 3 = 2 + 1, 5 = 3 + 2 and so on.
+
+	Write a function named isFibonacci that returns 1 if its integer argument is a Fibonacci number, otherwise it returns 0.
+
+	The signature of the function is
+	   int isFibonacci (int n)
+
+	*/
+	
+	static int isFibonacci(int n){
+		int fibonaccinumber1=1, fibonaccinumber2=1, fibonaccinumber=2;
+		System.out.println("Number: "+n);
+		while(fibonaccinumber<=n){
+			if(fibonaccinumber==n){
+				System.out.println("Return 1, isFibonacci");
+				return 1;
+			}
+			fibonaccinumber1=fibonaccinumber2;
+			fibonaccinumber2=fibonaccinumber;
+			fibonaccinumber=fibonaccinumber1+fibonaccinumber2;
+			//System.out.println("fibonaccinumber: "+fibonaccinumber);
+			if(fibonaccinumber>n){
+				System.out.println("Return 0, isFibonacci");
+				return 0;
+			}
+		}
+		System.out.println("Return 0, isFibonacci");
+		return 0;
 	}
 }
