@@ -988,23 +988,26 @@ public class Questions {
 				return 0;
 				}
 			if(a[i]%2==0){
-				flag = 1;
 				if(maxeven<a[i]){
 					maxeven=a[i];
 				}
 			}
 		}
 		System.out.println("Maxeven found: " + maxeven);
-
-		if(flag==0){
-			System.out.println("Return 0 from flag miss matched");
-			return 0;
+		for(int i=2; i<maxeven; i=i+2){
+			for(int j=0; j<a.length; j++){
+				if(i==a[j]){
+					flag=1;
+					break;
+				}
+				flag=0;
+			}
 		}
-		int[] evenarray = new int[maxeven/2];
-
-		for(int j=0; j<maxeven; j+=2)		
-		
-		System.out.println("Return 0");
+		if(flag==1){
+			System.out.println("Return 1");
+			return 1;
+		}
+		System.out.println("Return 0 end reached");
 		return 0;
 	}
 }
