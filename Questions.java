@@ -78,6 +78,12 @@ public class Questions {
 			System.out.println("{11, 5, 4, 20} number of square pair is: " +countSquaresPairs(new int[]{11, 5, 4, 20}));
 			System.out.println("{9} number of square pair is: " +countSquaresPairs(new int[]{9}));
 
+			/*Function countSquaresPairs2 */
+			System.out.println("<<<<<<>>>>>>>>>>>>>>>><<<<<<<<<<<<<>>>>>>>><<<<<>>>>");
+			System.out.println("{9, 0, 2, -5, 7} number of square pair is: " +countSquaresPairs2(new int[]{9, 0, 2, -5, 7}));
+			System.out.println("{11, 5, 4, 20} number of square pair is: " +countSquaresPairs2(new int[]{11, 5, 4, 20}));
+			System.out.println("{9} number of square pair is: " +countSquaresPairs2(new int[]{9}));
+
 			/*Function findPorcupineNumber */
 			System.out.println("<<<<<<>>>>>>>>>>>>>>>><<<<<<<<<<<<<>>>>>>>><<<<<>>>>");
 			findPorcupineNumber(8);
@@ -222,6 +228,26 @@ public class Questions {
 			isComplete(new int[]{2, 3, 2, 4, 11, 6, 10, 9, 8});
 			isComplete(new int[]{2, 3, 3, 6});
 			isComplete(new int[]{2, -3, 4, 3, 6});
+
+			/*Function repsEqual2*/
+			System.out.println("<<<<<<>>>>>>>>>>>>>>>><<<<<<<<<<<<<>>>>>>>><<<<<>>>>");
+			repsEqual2(new int[]{1,2,3}, 123);
+			repsEqual2(new int[]{3, 2, 0, 5, 3}, 32053);
+			repsEqual2(new int[]{3, 2, 0, 5}, 32053);
+			repsEqual2(new int[]{3, 2, 0, 5, 3, 4}, 32053);
+			repsEqual2(new int[]{2, 3, 0, 5, 3}, 32053);
+			repsEqual2(new int[]{9, 3, 1, 1, 2}, 32053);
+			repsEqual2(new int[]{0, 3, 2, 0, 5, 3}, 32053);	
+
+			/*Function repsEqual3*/
+			System.out.println("<<<<<<>>>>>>>>>>>>>>>><<<<<<<<<<<<<>>>>>>>><<<<<>>>>");
+			repsEqual3(new int[]{1,2,3}, 123);
+			repsEqual3(new int[]{3, 2, 0, 5, 3}, 32053);
+			repsEqual3(new int[]{3, 2, 0, 5}, 32053);
+			repsEqual3(new int[]{3, 2, 0, 5, 3, 4}, 32053);
+			repsEqual3(new int[]{2, 3, 0, 5, 3}, 32053);
+			repsEqual3(new int[]{9, 3, 1, 1, 2}, 32053);
+			repsEqual3(new int[]{0, 3, 2, 0, 5, 3}, 32053);	
 			
 		}
 	
@@ -436,6 +462,23 @@ public class Questions {
 		}
 		return count;
 	}
+
+	static int countSquaresPairs2(int[] a){
+		int count=0;
+		for(int i=0; i<a.length-1; i++){
+			if(a[i] <=0) continue;
+			for(int j=i+1; j<a.length;j++){
+				if(a[j] <=0) continue;
+				if(isPerfectSquare(a[i]+a[j])==1){
+					System.out.println("Sum number: "+a[i]);
+					System.out.println("Sum number: "+a[j]);
+					System.out.println("Equals: "+(a[i]+a[j]));
+					count++;
+				}
+			}
+		}
+		return count;
+	}	
 
 	static int isPerfectSquare(int a){
 		double sqrt = (int)Math.sqrt(a);
@@ -664,6 +707,71 @@ public class Questions {
 		System.out.println("Return 1");
 		return 1;
 	}	
+	
+	static int repsEqual2(int[] a, int n){
+		int count=0;
+		int number = n;
+		while(number!=0){
+			number=(int)number/10;
+			count++;
+			//System.out.println("Count number" + count);
+		}
+
+		if(a[0]==0){
+			count++;
+		}
+
+		int[] integerarray = new int[count];
+
+		if(a.length !=count){
+			System.out.println("Return 0 from count miss matched");
+			return 0;
+		}
+		number=n;
+		for(int i=0; i<count; i++){
+			integerarray[i] = number%10;
+			number=(int)number/10;
+		}
+		System.out.println(Arrays.toString(integerarray));
+		for(int i=0; i<a.length; i++){
+			if(a[i] != integerarray[a.length-1-i]){
+				return 0;
+			}
+		}
+		
+		System.out.println("Return 1");
+		return 1;
+	}
+
+	static int repsEqual3(int[] a, int n){
+		int number=n;
+		int count=0;
+		while(number!=0){
+			number=(int)number/10;			
+			count++;
+		}
+
+		if(a[0]==0){
+			count++;
+		}
+
+		if(count!=a.length){
+			System.out.println("Return 0 from length miss matched");
+			return 0;
+		}
+		
+		number = n;
+
+		for(int i=a.length-1; i>=0; i--){
+			if(a[i]!=number%10){
+				System.out.println("Return 0 from element miss matched");
+				return 0;
+			}
+			number=(int)number/10;
+		}
+		System.out.println("Return 1");
+		return 1;	
+	}
 
 	static int isCentered15(int[] a){
 		int sum = 0;
