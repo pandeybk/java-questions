@@ -254,6 +254,11 @@ public class Questions {
 			isSmart2(22);
 			isSmart2(3);
 			isSmart2(8);
+
+			/* Function factorEqual */
+			System.out.println("<<<<<<>>>>>>>>>>>>>>>><<<<<<<<<<<<<>>>>>>>><<<<<>>>>");
+			factorEqual(10,33);
+			factorEqual(9,10);
 		}
 	
 
@@ -1008,6 +1013,26 @@ public class Questions {
 			return 1;
 		}
 		System.out.println("Return 0 end reached");
+		return 0;
+	}
+
+	static int countfactor(int n){
+		int count=0, factor=1;
+		while(factor<=n){
+			if(n%factor==0){
+				count++;
+			}
+			factor++;
+		}
+		return count;
+	}
+
+	static int factorEqual(int n, int m){
+		if(countfactor(n)==countfactor(m)){
+			System.out.println("Return 1 factor equal");
+			return 1;
+		}
+		System.out.println("Return 0 factor not equal");
 		return 0;
 	}
 }
