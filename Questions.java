@@ -264,6 +264,13 @@ public class Questions {
 			System.out.println("<<<<<<>>>>>>>>>>>>>>>><<<<<<<<<<<<<>>>>>>>><<<<<>>>>");
 			isMeera(new int[]{-4, 0, 1, 0, 2, 1});
 			isMeera(new int[]{-8, 0, 0, 8, 0});
+
+			/*Function isTriple*/
+			System.out.println("<<<<<<>>>>>>>>>>>>>>>><<<<<<<<<<<<<>>>>>>>><<<<<>>>>");
+			isTriple(new int[]{3, 1, 2, 1, 3, 1, 3, 2, 2});
+			isTriple(new int[]{2, 5, 2, 5, 5, 2, 5});
+			isTriple(new int[]{3, 1, 1, 1});
+			isTriple(new int[]{1, 1, 1});
 		}
 	
 
@@ -1081,5 +1088,43 @@ public class Questions {
 			return 1;
 		}
 		return 0;
+	}
+
+	/*
+	Define a Triple array to be an array where every value occurs exactly three times. 
+
+	For example, {3, 1, 2, 1, 3, 1, 3, 2, 2} is a Triple array.
+
+	The following arrays are not Triple arrays
+	{2, 5, 2, 5, 5, 2, 5} (5 occurs four times instead of three times)
+	{3, 1, 1, 1} (3 occurs once instead of three times)
+
+	Write a function named isTriple that returns 1 if its array argument is a Triple array. Otherwise it returns 0.
+
+	If you are programming in Java or C#, the function signature is
+	   int isTriple (int[ ] a)
+
+	If you are programming in C or C++, the function signature is
+	   int isTriple (int a[ ], int len) where len is the number of elements in the array.
+
+	*/
+	static int isTriple(int[] a){
+		int count=0;
+		int countingnumber;
+		for(int i=0; i<a.length; i++){
+			countingnumber=a[i];
+			for(int j=0; j<a.length; j++){
+				if(countingnumber==a[j]){
+						count++;
+					}
+				}
+			if(count!=3){
+				System.out.println("Return 0, not triple");
+				return 0;
+			}
+			count=0;
+		}
+		System.out.println("Return 1 triple");
+		return 1;
 	}
 }
